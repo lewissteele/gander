@@ -56,6 +56,9 @@ jobs:
       - name: Extract vendor
         run: tar -xvf artifact/vendor.tar -C .
 
+      - name: Generate app key
+        run: php artisan key:generate
+
       - name: Run tests
         run: php artisan test --stop-on-failure
 
