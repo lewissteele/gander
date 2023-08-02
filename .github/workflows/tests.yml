@@ -62,6 +62,12 @@ jobs:
       - name: Generate app key
         run: php artisan key:generate
 
+      - name: Install node packages
+        run: npm install
+
+      - name: Vite build
+        run: npm run build
+
       - name: Run tests
         run: php artisan test --stop-on-failure
 
