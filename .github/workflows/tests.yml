@@ -71,3 +71,22 @@ jobs:
       - name: Run tests
         run: php artisan test --stop-on-failure
 
+  pint:
+    name: Pint
+    needs: composer
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - uses: actions/checkout@v3
+
+      - uses: actions/download-artifact@v3
+
+      - name: Extract vendor
+        run: tar -xvf artifact/vendor.tar -C .
+
+      - name: Pint test
+        run: ./vendor/bin/pint --test
+
