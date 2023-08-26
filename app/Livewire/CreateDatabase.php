@@ -16,9 +16,4 @@ class CreateDatabase extends Component
             $this->form->all(),
         );
     }
-
-    public function render()
-    {
-        return view('livewire.create-database');
-    }
 }
