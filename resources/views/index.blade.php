@@ -7,6 +7,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
-        <livewire:sidebar />
+
+        <div class="flex">
+            <div class="flex-none w-25">
+                <livewire:sidebar />
+            </div>
+            <div class="flex-auto w-max"></div>
+        </div>
     </body>
 </html>
