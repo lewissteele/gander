@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Database extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'driver',
+        'hostname',
+        'password',
+        'port',
+        'username',
+    ];
 }

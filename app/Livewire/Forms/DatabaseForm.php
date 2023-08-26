@@ -8,7 +8,7 @@ use Livewire\Form;
 class DatabaseForm extends Form
 {
     #[Rule('required|string')]
-    public string $driver;
+    public string $driver = 'pgsql';
 
     #[Rule('required|string')]
     public string $hostname;

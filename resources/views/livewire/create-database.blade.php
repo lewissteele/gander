@@ -13,8 +13,8 @@
             class="select input-bordered w-full input-block"
             wire:model="form.driver"
         >
-            <option selected>pgsql</option>
-            <option>mysql</option>
+            <option selected value="pgsql">pgsql</option>
+            <option value="mysql">mysql</option>
         </select>
         <input
             class="input input-bordered w-full input-block"
