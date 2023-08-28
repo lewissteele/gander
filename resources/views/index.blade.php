@@ -14,6 +14,7 @@
                     <livewire:table-list />
                 </div>
                 <div class="flex-1">
+                    <livewire:table />
                 </div>
             </div>
         </div>
