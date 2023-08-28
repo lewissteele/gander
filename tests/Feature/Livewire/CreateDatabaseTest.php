@@ -12,12 +12,12 @@ class CreateDatabaseTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_renders_successfully(): void
+    public function test_it_renders_successfully(): void
     {
         Livewire::test(CreateDatabase::class)->assertStatus(Response::HTTP_OK);
     }
 
-    public function test_saves_to_database(): void
+    public function test_it_saves_to_database(): void
     {
         $driver = 'pgsql';
         $host = fake()->domainName();

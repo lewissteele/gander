@@ -10,12 +10,12 @@ class DatabaseTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_it_loads_connection_into_config()
+    public function test_it_loads_connection_into_config(): void
     {
-        Database::factory()->create();
+        $database = Database::factory()->create();
 
         $this->assertArrayHasKey(
-            'user-1',
+            $database->connection_name,
             config('database.connections'),
         );
     }
