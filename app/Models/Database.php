@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 /**
+ * @property Collection<Table> $tables
  * @property int $port
  * @property string $connection_name
  * @property string $database
@@ -44,18 +45,20 @@ class Database extends Model
         static::updated($loadIntoConfig);
     }
 
-    public function getUserConnection(): Connection
+    protected function tables(): Attribute
     {
-        return DB::connection($this->connection_name);
-    }
+        return Attribute::make(get: function () {
+            $tables = DB::connection($this->connection_name)
+                ->getDoctrineSchemaManager()
+                ->listTableNames();
 
-    public function getTablesNames(): Collection
-    {
-        $tableNames = $this->getUserConnection()
-            ->getDoctrineSchemaManager()
-            ->listTableNames();
-
-        return collect($tableNames)->sort();
+            return collect($tables)->sort()->map(function (string $tableName) {
+                $table = new Table();
+                $table->setTable($tableName);
+                $table->setConnection($this->connection_name);
+                return $table;
+            });
+        });
     }
 
     protected function connectionName(): Attribute
