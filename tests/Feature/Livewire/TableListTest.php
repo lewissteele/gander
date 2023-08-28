@@ -24,7 +24,7 @@ class TableListTest extends TestCase
 
         $schemaBuilder->create(
             $expectedTableName,
-            fn(Blueprint $table) => $table->boolean('test_column'),
+            fn (Blueprint $table) => $table->boolean('test_column'),
         );
 
         Livewire::test(TableList::class)
