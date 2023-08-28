@@ -2,12 +2,31 @@
 
 namespace App\Livewire;
 
+use App\Models\Database;
+use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class TableList extends Component
 {
-    public function render()
+    public string $active;
+
+    public Collection $tables;
+
+    public function mount(): void
     {
-        return view('livewire.table-list');
+        $database = Database::firstOrFail();
+        $tables = $database->getTablesNames();
+
+        $this->active = $tables->first();
+        $this->tables = $tables;
+    }
+
+    public function render(): View
+    {
+        return view('livewire.table-list')->with([
+            'active' => $this->active,
+            'tables' => $this->tables,
+        ]);
     }
 }
