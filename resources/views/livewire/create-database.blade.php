@@ -20,7 +20,7 @@
             class="input input-bordered w-full input-block"
             placeholder="hostname"
             type="text"
-            wire:model="form.hostname"
+            wire:model="form.host"
         />
         <input
             class="input input-bordered w-full input-block"

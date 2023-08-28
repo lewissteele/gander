@@ -11,7 +11,7 @@ class DatabaseForm extends Form
     public string $driver = 'pgsql';
 
     #[Rule('required|string')]
-    public string $hostname;
+    public string $host;
 
     #[Rule('required|string')]
     public string $username;

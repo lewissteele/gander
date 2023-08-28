@@ -20,14 +20,14 @@ class CreateDatabaseTest extends TestCase
     public function test_saves_to_database(): void
     {
         $driver = 'pgsql';
-        $hostname = fake()->domainName();
+        $host = fake()->domainName();
         $password = fake()->password();
         $port = 5432;
         $username = fake()->userName();
 
         Livewire::test(CreateDatabase::class)
             ->set('form.driver', $driver)
-            ->set('form.hostname', $hostname)
+            ->set('form.host', $host)
             ->set('form.password', $password)
             ->set('form.port', $port)
             ->set('form.username', $username)
@@ -35,7 +35,7 @@ class CreateDatabaseTest extends TestCase
 
         $this->assertDatabaseHas('databases', [
             'driver' => $driver,
-            'hostname' => $hostname,
+            'host' => $host,
             'password' => $password,
             'port' => $port,
             'username' => $username,

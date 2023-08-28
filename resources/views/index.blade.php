@@ -11,9 +11,10 @@
 
             <div class="flex h-full">
                 <div class="relative overflow-y-auto overflow-x-hidden flex-none h-full">
-                    <livewire:sidebar />
+                    <livewire:table-list />
                 </div>
-                <div class="flex-1"></div>
+                <div class="flex-1">
+                </div>
             </div>
         </div>
     </body>
