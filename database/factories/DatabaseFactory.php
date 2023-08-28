@@ -12,11 +12,12 @@ class DatabaseFactory extends Factory
     public function definition(): array
     {
         return [
+            'database' => ':memory:',
             'driver' => 'sqlite',
-            'hostname' => fake()->domainName(),
-            'username' => fake()->userName(),
+            'host' => fake()->domainName(),
             'password' => fake()->password(),
             'port' => fake()->randomNumber(),
+            'username' => fake()->userName(),
         ];
     }
 }
