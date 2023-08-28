@@ -1,20 +1,18 @@
-<div class="overflow-x-auto">
-  <table class="table table-pin-cols table-zebra">
+<table class="table table-zebra table-pin-rows">
     <thead>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-      </tr>
+        <tr>
+            @foreach ($columns as $column)
+                <th>{{ $column }}</th>
+            @endforeach
+        </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
+        @foreach ($rows as $row)
+            <tr>
+                @foreach ($row as $value)
+                    <th>{{ $value }}</th>
+                @endforeach
+            </tr>
+        @endforeach
     </tbody>
-  </table>
-</div>
+</table>

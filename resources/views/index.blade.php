@@ -13,7 +13,7 @@
                 <div class="relative overflow-y-auto overflow-x-hidden flex-none h-full">
                     <livewire:table-list />
                 </div>
-                <div class="flex-1">
+                <div class="flex-1 relative overflow-auto h-full">
                     <livewire:table />
                 </div>
             </div>
