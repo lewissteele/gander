@@ -11,7 +11,8 @@ return new class extends Migration
         Schema::create('databases', function (Blueprint $table) {
             $table->id();
             $table->string('driver');
-            $table->text('hostname');
+            $table->string('database')->nullable();
+            $table->text('host');
             $table->text('username');
             $table->text('password');
             $table->integer('port')->nullable();
