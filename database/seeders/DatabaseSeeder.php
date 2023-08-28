@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
         $database = Database::factory()->create();
         $schemaBuilder = $database->getUserConnection()->getSchemaBuilder();
 
-        $schemaBuilder->create('test_table', function(Blueprint $table) {
+        $schemaBuilder->create('test_table', function (Blueprint $table) {
             $table->string('test_string_column');
         });
 
