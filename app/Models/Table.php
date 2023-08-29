@@ -10,7 +10,6 @@ use MichaelAChrisco\ReadOnly\ReadOnlyTrait;
 
 /**
  * @property string[] $columns
- * @mixin IdeHelperTable
  */
 class Table extends Model
 {

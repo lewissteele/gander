@@ -15,7 +15,6 @@
         "michaelachrisco/readonly": "^0.60.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

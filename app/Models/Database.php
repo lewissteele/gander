@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\DB;
  * @property string $host
  * @property string $password
  * @property string $username
- * @mixin IdeHelperDatabase
  */
 class Database extends Model
 {
