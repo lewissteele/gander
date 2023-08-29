@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -56,6 +55,7 @@ class Database extends Model
                 $table = new Table();
                 $table->setTable($tableName);
                 $table->setConnection($this->connection_name);
+
                 return $table;
             });
         });
