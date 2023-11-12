@@ -11,10 +11,10 @@ class TableTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function renders_successfully()
+    public function test_it_renders_successfully(): void
     {
         Livewire::test(Table::class)
-            ->assertStatus(200);
+            ->assertSuccessful()
+            ->assertSee('test_string_column');
     }
 }
