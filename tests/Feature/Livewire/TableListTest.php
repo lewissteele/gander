@@ -4,7 +4,6 @@ namespace Tests\Feature\Livewire;
 
 use App\Livewire\TableList;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Response;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -15,7 +14,7 @@ class TableListTest extends TestCase
     public function test_it_lists_tables(): void
     {
         Livewire::test(TableList::class)
-            ->assertStatus(Response::HTTP_OK)
+            ->assertSuccessful()
             ->assertSee('test_table');
     }
 }
