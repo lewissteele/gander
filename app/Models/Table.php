@@ -9,6 +9,7 @@ use Illuminate\Database\Query\Builder;
 use MichaelAChrisco\ReadOnly\ReadOnlyTrait;
 
 /**
+ * @property string $name
  * @property string[] $columns
  */
 class Table extends Model
@@ -17,6 +18,10 @@ class Table extends Model
     use ReadOnlyTrait;
 
     protected $table = null;
+
+    protected $appends = [
+        'name',
+    ];
 
     public function queryBuilder(): Builder
     {
@@ -29,6 +34,13 @@ class Table extends Model
             get: fn () => $this->getConnection()
                 ->getSchemaBuilder()
                 ->getColumnListing($this->getTable()),
+        );
+    }
+
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->getTable(),
         );
     }
 }

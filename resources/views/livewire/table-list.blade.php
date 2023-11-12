@@ -2,7 +2,7 @@
     @foreach ($tables as $table)
             <li>
                 <a
-                    wire:click="$set('active', '{{ $table->getTable() }}')"
+                    wire:click="setActive('{{ $table->getTable() }}')"
                     @class(['active' => $table->getTable() === $active])
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">

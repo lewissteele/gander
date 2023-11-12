@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Database;
+use App\Models\Table;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -24,5 +25,11 @@ class TableList extends Component
             'active' => $this->active,
             'tables' => $this->database->tables,
         ]);
+    }
+
+    public function setActive(string $tableName): void
+    {
+        $this->active = $tableName;
+        $this->dispatch('active-table-did-change', $tableName);
     }
 }
