@@ -1,3 +1,3 @@
-<div>
-    {{-- Care about people's approval and you will be their prisoner. --}}
+<div class="navbar bg-base-100">
+  <a class="btn btn-ghost text-xl">Gander</a>
 </div>
