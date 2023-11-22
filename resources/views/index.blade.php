@@ -7,10 +7,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
-        <livewire:navigation />
         <div class="relative h-screen overflow-hidden">
-
-            <div class="flex h-full">
+            <div class="flex h-full flex-wrap">
+                <div class="flex-grow">
+                    <livewire:navigation />
+                </div>
                 <div class="relative overflow-y-auto overflow-x-hidden flex-none h-full">
                     <livewire:table-list />
                 </div>
