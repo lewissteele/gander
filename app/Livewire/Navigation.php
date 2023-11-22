@@ -12,8 +12,8 @@ class Navigation extends Component
 
     public function mount(): void
     {
-        $database = cache(
-            'active-database',
+        $database = cache()->get(
+            'database',
             fn () => Database::first(),
         );
 
@@ -33,12 +33,14 @@ class Navigation extends Component
         ]);
     }
 
-    public function updated(string $name, mixed $value): void
+    public function updatedDatabase(?int $id): void
     {
-        if ($name === 'database') {
-            $this->dispatch('active-database-changed', [
-                'database' => $value,
-            ]);
-        }
+        $database = Database::findOrFail($id);
+
+        cache()->put('database', $database);
+
+        $this->dispatch('active-database-changed', [
+            'database' => $database->id,
+        ]);
     }
 }
