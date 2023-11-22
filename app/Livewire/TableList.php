@@ -26,9 +26,9 @@ class TableList extends Component
         ]);
     }
 
-    public function setActive(string $tableName): void
+    public function setActive(string $table): void
     {
-        $this->active = $tableName;
-        $this->dispatch('active-table-did-change', $tableName);
+        $this->active = $table;
+        $this->dispatch('active-table-changed', $table);
     }
 }

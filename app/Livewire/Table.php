@@ -3,46 +3,41 @@
 namespace App\Livewire;
 
 use App\Models\Database;
-use Illuminate\Support\Collection;
+use Illuminate\Contracts\View\View;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Table extends Component
 {
-    public string $tableName;
+    public string $table;
 
-    public array $columns;
-
-    public Collection $rows;
-
-    public function mount()
+    public function mount(): void
     {
         $database = Database::firstOrFail();
         $table = $database->tables->first();
-        $this->tableName = $table->name;
+        $this->table = $table->name;
     }
 
-    public function render()
+    public function render(): View
     {
         $database = Database::firstOrFail();
 
         $table = $database->tables
-            ->where('name', $this->tableName)
+            ->where('name', $this->table)
             ->firstOrFail();
 
-        $this->columns = $table->columns;
-        $this->rows = $table->queryBuilder()->select()->get();
+        $columns = $table->columns;
+        $rows = $table->queryBuilder()->select()->get();
 
         return view('livewire.table')->with([
-            'table' => $this->tableName,
-            'columns' => $this->columns,
-            'rows' => $this->rows,
+            'columns' => $columns,
+            'rows' => $rows,
         ]);
     }
 
-    #[On('active-table-did-change')]
-    public function onActiveTableChanged(string $tableName): void
+    #[On('active-table-changed')]
+    public function updateTable(string $table): void
     {
-        $this->tableName = $tableName;
+        $this->table = $table;
     }
 }
