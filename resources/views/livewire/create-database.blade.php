@@ -1,4 +1,7 @@
-<dialog class="modal" open>
+<dialog
+    class="modal"
+    @if ($open) open @endif
+>
     <form
         wire:submit="save"
         class="modal-box flex flex-col gap-4 w-full items-center"
