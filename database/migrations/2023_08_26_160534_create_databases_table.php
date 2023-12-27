@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('database')->nullable();
             $table->text('host');
             $table->text('username');
-            $table->text('password');
+            $table->text('password')->nullable();
             $table->integer('port')->nullable();
             $table->timestamps();
         });
