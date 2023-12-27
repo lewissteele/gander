@@ -15,9 +15,16 @@ class CreateDatabase extends Component
 
     public function save(): void
     {
-        Database::create(
+        $database = Database::create(
             $this->form->all(),
         );
+
+        $this->dispatch(
+            'database-created',
+            $database->id,
+        );
+
+        $this->open = false;
     }
 
     #[On('show-create-database')]

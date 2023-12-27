@@ -16,19 +16,28 @@
             class="select input-bordered w-full input-block"
             wire:model="form.driver"
         >
-            <option selected value="pgsql">pgsql</option>
             <option value="mysql">mysql</option>
+            <option value="pgsql">pgsql</option>
         </select>
         <input
             class="input input-bordered w-full input-block"
             placeholder="hostname"
             type="text"
+            required
             wire:model="form.host"
+        />
+        <input
+            class="input input-bordered w-full input-block"
+            placeholder="database"
+            type="text"
+            required
+            wire:model="form.database"
         />
         <input
             class="input input-bordered w-full input-block"
             placeholder="username"
             type="text"
+            required
             wire:model="form.username"
         />
         <input

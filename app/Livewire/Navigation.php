@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Database;
 use Illuminate\Contracts\View\View;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Navigation extends Component
@@ -34,6 +35,7 @@ class Navigation extends Component
         ]);
     }
 
+    #[On('database-created')]
     public function updatedDatabase(?int $id): void
     {
         $database = Database::findOrFail($id);

@@ -8,15 +8,18 @@ use Livewire\Form;
 class DatabaseForm extends Form
 {
     #[Rule('required|string')]
-    public string $driver = 'pgsql';
+    public string $driver = 'mysql';
 
     #[Rule('required|string')]
     public string $host;
 
     #[Rule('required|string')]
-    public string $username;
+    public string $database;
 
     #[Rule('required|string')]
+    public string $username;
+
+    #[Rule('string')]
     public string $password;
 
     #[Rule('integer')]
