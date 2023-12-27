@@ -4,15 +4,12 @@ namespace Tests\Feature\Livewire;
 
 use App\Livewire\Navigation;
 use App\Models\Database;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Livewire;
 use Tests\TestCase;
 
 class NavigationTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_renders_successfully(): void
     {
         $database = Database::factory()->create();

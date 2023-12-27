@@ -3,15 +3,12 @@
 namespace Tests\Feature\Livewire;
 
 use App\Livewire\CreateDatabase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Response;
 use Livewire\Livewire;
 use Tests\TestCase;
 
 class CreateDatabaseTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function test_it_renders_successfully(): void
     {
         Livewire::test(CreateDatabase::class)->assertStatus(Response::HTTP_OK);
