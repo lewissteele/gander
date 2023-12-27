@@ -19,9 +19,10 @@ class Navigation extends Component
 
         if ($database) {
             $this->database = $database->id;
-            $this->dispatch('active-database-changed', [
-                'database' => $database->id,
-            ]);
+            $this->dispatch(
+                'active-database-changed',
+                $database->id,
+            );
         }
     }
 
@@ -39,8 +40,9 @@ class Navigation extends Component
 
         cache()->put('database', $database);
 
-        $this->dispatch('active-database-changed', [
-            'database' => $database->id,
-        ]);
+        $this->dispatch(
+            'active-database-changed',
+            $database->id,
+        );
     }
 }
