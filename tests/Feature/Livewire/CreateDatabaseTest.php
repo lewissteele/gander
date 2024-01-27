@@ -38,4 +38,12 @@ class CreateDatabaseTest extends TestCase
             'username' => $username,
         ]);
     }
+
+    public function test_it_resets_the_from_on_close(): void
+    {
+        Livewire::test(CreateDatabase::class)
+            ->set('form.host', fake()->domainName())
+            ->dispatch('close-create-database')
+            ->assertSet('form.host', null);
+    }
 }
