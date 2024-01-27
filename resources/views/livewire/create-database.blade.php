@@ -6,7 +6,11 @@
         wire:submit="save"
         class="modal-box flex flex-col gap-4 w-full items-center"
     >
-        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+        <button
+            wire:click="$dispatch('hide-create-database')"
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            type="button"
+        >
             ✕
         </button>
         <h3 class="font-bold text-lg">
