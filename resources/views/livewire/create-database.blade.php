@@ -1,15 +1,15 @@
 <dialog
-    class="modal"
     @if ($open) open @endif
+    class="modal"
 >
     <form
-        wire:submit="save"
         class="modal-box flex flex-col gap-4 w-full items-center"
+        wire:submit="save"
     >
         <button
-            wire:click="$dispatch('hide-create-database')"
             class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
             type="button"
+            wire:click="$dispatch('close-create-database')"
         >
             ✕
         </button>

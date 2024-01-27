@@ -11,17 +11,17 @@ class DatabaseForm extends Form
     public string $driver = 'mysql';
 
     #[Rule('required|string')]
-    public string $host;
+    public string|null $host;
 
     #[Rule('required|string')]
-    public string $database;
+    public string|null $database;
 
     #[Rule('required|string')]
-    public string $username;
+    public string|null $username;
 
     #[Rule('string')]
-    public string $password;
+    public string|null $password;
 
     #[Rule('integer')]
-    public int $port;
+    public int|null $port;
 }

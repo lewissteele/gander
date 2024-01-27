@@ -27,15 +27,16 @@ class CreateDatabase extends Component
         $this->open = false;
     }
 
-    #[On('show-create-database')]
+    #[On('open-create-database')]
     public function open(): void
     {
         $this->open = true;
     }
 
-    #[On('hide-create-database')]
+    #[On('close-create-database')]
     public function close(): void
     {
+        $this->form->reset();
         $this->open = false;
     }
 }
