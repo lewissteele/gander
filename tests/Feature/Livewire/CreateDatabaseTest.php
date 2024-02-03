@@ -39,7 +39,7 @@ class CreateDatabaseTest extends TestCase
         ]);
     }
 
-    public function test_it_resets_the_from_on_close(): void
+    public function test_it_resets_the_form_on_close(): void
     {
         Livewire::test(CreateDatabase::class)
             ->set('form.host', fake()->domainName())
