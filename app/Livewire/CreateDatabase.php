@@ -24,6 +24,7 @@ class CreateDatabase extends Component
             $database->id,
         );
 
+        $this->form->reset();
         $this->open = false;
     }
 
