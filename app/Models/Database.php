@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * @property Collection<Table> $tables
@@ -47,9 +47,10 @@ class Database extends Model
     protected function tables(): Attribute
     {
         return Attribute::make(get: function () {
-            $tables = DB::connection($this->connection_name)
-                ->getDoctrineSchemaManager()
-                ->listTableNames();
+            $tables = array_column(
+                Schema::connection($this->connection_name)->getTables(),
+                'name',
+            );
 
             return collect($tables)->sort()->map(function (string $tableName) {
                 $table = new Table();
