@@ -1,0 +1,12 @@
+[package]
+name = "gander"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "CLI client for SQL databases"
+repository = "https://github.com/lewissteele/gander"
+
+[dependencies]
+clap = { version = "4.5.7", features = ["derive"] }
+sqlx = { version = "0.7.4", features = [ "runtime-tokio", "mysql" ] }
+tokio = { version = "1.38.0", features = ["full"] }
