@@ -5,7 +5,7 @@ use sqlx::mysql::MySqlPoolOptions;
 struct Args {
     host: String,
     username: String,
-    database: String
+    database: String,
 }
 
 #[tokio::main]
@@ -22,7 +22,10 @@ async fn main() -> Result<(), sqlx::Error> {
 
     let result = sqlx::query("select * from users").execute(&pool).await?;
 
-    println!("rows affected {rows_affected}", rows_affected = result.rows_affected());
+    println!(
+        "rows affected {rows_affected}",
+        rows_affected = result.rows_affected(),
+    );
 
     Ok(())
 }
